@@ -10,8 +10,8 @@ permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Thiacoules Professional Website"
-description:	       "A minimalist website deigned for professional purposes"
+title:		           "Thiacoules Website"
+description:	       "A minimalist website designed for professional purposes"
 editor:              "Ian Thiacoules"
 
 # RSS 2.0 can be used instead of Atom by uncommenting the following two lines
