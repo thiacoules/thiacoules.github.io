@@ -68,11 +68,36 @@
             /* Clean, dark minimalist desk background */
             background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop'); 
         }
-        body.theme-contact { 
+       body.theme-contact { 
             --accent: var(--color-contact); 
             /* Keep it similar to home or add a subtle map background */
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
         }
+
+        /* --- RESTORED CORE LAYOUT & LAG FIX --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: #fff;
+            background-color: #050505;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            /* This is the lag fix! No more "all 0.5s ease" */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); 
+            z-index: -1;
+            transition: 0.5s;
+        }
+        body:not(.theme-home) .overlay { background: rgba(5, 5, 8, 0.96); } 
 
         /* --- 2. SIDEBAR --- */
         .sidebar {
