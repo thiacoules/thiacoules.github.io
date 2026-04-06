@@ -263,6 +263,48 @@
             .tab-content { padding: 40px 20px 80px; }
         }
     </style>
+    /* --- WOW FACTOR: CSS UPGRADES --- */
+        
+        /* 1. Preloader Styles */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease; }
+        .term-container { font-family: monospace; color: #2ecc71; font-size: 1.2rem; line-height: 2; width: 320px; }
+        .term-container p { overflow: hidden; white-space: nowrap; margin: 0; opacity: 0; animation: termLine 0.5s forwards; }
+        .term-container p:nth-child(1) { animation-delay: 0.2s; }
+        .term-container p:nth-child(2) { animation-delay: 1.0s; }
+        .term-container p:nth-child(3) { animation-delay: 1.8s; }
+        .term-container p:nth-child(4) { animation-delay: 2.6s; color: #fff; }
+        .blink-cursor::after { content: '█'; animation: blink 1s infinite; margin-left: 5px; }
+        @keyframes termLine { from { width: 0; opacity: 0; } to { width: 100%; opacity: 1; } }
+
+        /* 2. Holographic Card Glow */
+        .card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card:hover { 
+            transform: translateY(-8px) scale(1.02); 
+            border-color: var(--accent); 
+            box-shadow: 0 10px 30px -10px var(--accent); /* This creates the dynamic glow */
+        }
+
+        /* 3. Custom Radar Cursor */
+        body { cursor: none; }
+        a, button, .split-card { cursor: none !important; }
+        .cursor-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 100000; transform: translate(-50%, -50%); transition: background 0.3s; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.3s, background-color 0.2s; }
+
+        /* 4. CRT Flicker & Typing Animations */
+        .typewriter-text {
+            display: inline-block; overflow: hidden; white-space: nowrap; border-right: 2px solid var(--accent);
+            animation: typing 2.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+            animation-delay: 4.5s; /* Waits for preloader */
+            width: 0; /* Starts hidden */
+        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent); } }
+
+        .crt-flicker { animation: crtFlicker 0.15s infinite alternate; }
+        @keyframes crtFlicker {
+            0% { opacity: 0.95; box-shadow: 0 0 5px rgba(0,212,255,0.2); }
+            100% { opacity: 1; box-shadow: inset 0 0 15px rgba(0,212,255,0.4), 0 0 10px rgba(0,212,255,0.5); }
+        }
 </head>
 <body class="theme-home">
     <div id="preloader">
@@ -309,9 +351,9 @@
         <section id="home" class="tab-content active">
             <div style="margin-top: 10vh;">
                 <h1 style="font-size: 4rem;">John Thiacoules</h1>
-                <p style="font-family: var(--font-aristocrat); font-size: 1.2rem; color: #aaa; letter-spacing: 3px;">Physicist | Biomedical Tech | Strategist</p>
+                <p class="typewriter-text" style="font-family: var(--font-aristocrat); font-size: 1.2rem; color: #aaa; letter-spacing: 3px;">Physicist | Biomedical Tech | Strategist</p>
                 
-                <div style="border: 1px solid var(--color-science); background: rgba(0,0,0,0.7); padding: 20px; max-width: 300px; margin-top: 40px; font-family: monospace;">
+                <div class="crt-flicker" style="border: 1px solid var(--color-science); background: rgba(0,0,0,0.7); padding: 20px; max-width: 300px; margin-top: 40px; font-family: monospace;">
                     <div style="color: var(--color-science); margin-bottom: 10px;">LIVE TELEMETRY <span style="animation: blink 1s infinite;">●</span></div>
                     <div style="display:flex; justify-content:space-between;"><span>ALTITUDE:</span> <span id="tel-alt">408.2 km</span></div>
                     <div style="display:flex; justify-content:space-between;"><span>VELOCITY:</span> <span id="tel-vel">7.66 km/s</span></div>
@@ -890,5 +932,43 @@
         }
     });
 </script>
+    // --- WOW FACTOR: JAVASCRIPT ---
+
+        // 1. Preloader Boot Sequence
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if(preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 1000);
+                }
+            }, 4000); // 4 seconds gives the terminal time to type out
+        });
+
+        // 2. Custom Radar Cursor Logic
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            // Dot follows instantly
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            
+            // Outline trails smoothly using the Web Animations API
+            cursorOutline.animate({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            }, { duration: 400, fill: "forwards" });
+        });
+
+        // Click effect (Radar pulse)
+        window.addEventListener('mousedown', () => {
+            cursorOutline.style.transform = 'translate(-50%, -50%) scale(0.6)';
+            cursorOutline.style.backgroundColor = 'rgba(255,255,255,0.1)';
+        });
+        window.addEventListener('mouseup', () => {
+            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursorOutline.style.backgroundColor = 'transparent';
+        });
 </body>
 </html>
