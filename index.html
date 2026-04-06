@@ -748,12 +748,12 @@
             if(velEl) velEl.innerText = vel.toFixed(2) + " km/s";
         }, 2000);
 
-        // ATHLETE BIOMETRICS SIMULATION
+       // ATHLETE BIOMETRICS SIMULATION
         let athleteInterval;
         function startAthleteSim() {
             if(athleteInterval) clearInterval(athleteInterval);
             
-            // 1. Bar Simulation
+            // 1. Bar Simulation (Kept your original logic)
             athleteInterval = setInterval(() => {
                 const hr = Math.floor(60 + Math.random() * 40); // 60-100 BPM
                 const rec = Math.floor(90 + Math.random() * 10); // 90-100%
@@ -765,18 +765,45 @@
                 document.getElementById('val-rec').innerText = rec + '%';
             }, 3000);
 
-            // 2. ECG Canvas Animation
+            // 2. Live ECG Canvas Animation
             const canvas = document.getElementById('ecgCanvas');
             if(!canvas) return;
             const ctx = canvas.getContext('2d');
+            
+            // Set canvas size to match the container
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = 60; // Matches your CSS height
+            
             let x = 0;
-            let y = 30;
 
-            function drawECG() {
-                canvas.width = canvas.parentElement.offsetWidth; // Resize logic
-                // Basic animation loop would go here, simplified for this snippet
+            function animate() {
+                // Stop the loop if the user clicks away to another tab
+                if (!document.body.classList.contains('theme-athlete')) return;
+                
+                // Create a fading trail effect
+                ctx.fillStyle = "rgba(0, 20, 0, 0.1)"; 
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Draw the line
+                ctx.strokeStyle = "var(--color-athlete)";
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(x, 30); // Center line
+                
+                // Create the heartbeat "spike" every ~150 pixels
+                let y = 30;
+                if (x % 150 > 130 && x % 150 < 135) y = 10; // Sharp spike up
+                if (x % 150 >= 135 && x % 150 < 145) y = 50; // Deep dip down
+                
+                ctx.lineTo(x + 2, y);
+                ctx.stroke();
+
+                // Move forward, or reset to the left side if we hit the edge
+                x = x > canvas.width ? 0 : x + 2;
+                
+                requestAnimationFrame(animate);
             }
-            // For simplicity in this static file, we will just pulse the bars
+            animate(); // Kick off the animation
         }
     </script>
 <div id="secret-planet" style="position:fixed; top:10%; right:10%; font-size:6rem; opacity:0; transition: opacity 1.5s; z-index:9998; filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.5));">🔴</div>
