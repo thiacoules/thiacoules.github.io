@@ -256,14 +256,15 @@
 
         /* --- WOW FACTOR: CSS UPGRADES --- */
         
-        /* 1. Preloader Styles */
+        /* 1. Preloader Styles (Voyager Edition) */
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease; }
-        .term-container { font-family: monospace; color: #2ecc71; font-size: 1.2rem; line-height: 2; width: 320px; }
-        .term-container p { overflow: hidden; white-space: nowrap; margin: 0; opacity: 0; animation: termLine 0.5s forwards; }
+        .term-container { font-family: monospace; color: #d4af37; font-size: 1.1rem; line-height: 2; width: 450px; }
+        .term-container p { overflow: hidden; white-space: nowrap; margin: 0; opacity: 0; animation: termLine 0.6s forwards; }
         .term-container p:nth-child(1) { animation-delay: 0.2s; }
-        .term-container p:nth-child(2) { animation-delay: 1.0s; }
-        .term-container p:nth-child(3) { animation-delay: 1.8s; }
-        .term-container p:nth-child(4) { animation-delay: 2.6s; color: #fff; }
+        .term-container p:nth-child(2) { animation-delay: 1.2s; }
+        .term-container p:nth-child(3) { animation-delay: 2.2s; }
+        .term-container p:nth-child(4) { animation-delay: 3.2s; }
+        .term-container p:nth-child(5) { animation-delay: 4.2s; color: #fff; font-style: italic; }
         .blink-cursor::after { content: '█'; animation: blink 1s infinite; margin-left: 5px; }
         @keyframes termLine { from { width: 0; opacity: 0; } to { width: 100%; opacity: 1; } }
 
@@ -275,9 +276,8 @@
             box-shadow: 0 10px 30px -10px var(--accent); 
         }
 
-        /* 3. Custom Radar Cursor */
-        body { cursor: none; }
-        a, button, .split-card { cursor: none !important; }
+        /* 3. Custom Radar Cursor (Double-Cursor Fix) */
+        * { cursor: none !important; }
         .cursor-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 100000; transform: translate(-50%, -50%); transition: background 0.3s; }
         .cursor-outline { width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.3s, background-color 0.2s; }
 
@@ -285,7 +285,7 @@
         .typewriter-text {
             display: inline-block; overflow: hidden; white-space: nowrap; border-right: 2px solid var(--accent);
             animation: typing 2.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
-            animation-delay: 4.5s; /* Waits for preloader */
+            animation-delay: 6.5s; /* Waits for preloader */
             width: 0; /* Starts hidden */
         }
         @keyframes typing { from { width: 0 } to { width: 100% } }
@@ -299,7 +299,7 @@
     </style>
 </head>
 <body class="theme-home">
-   <div id="preloader">
+    <div id="preloader">
         <div class="term-container">
             <p>> INTERCEPTING INTERSTELLAR SIGNAL...</p>
             <p>> ISOLATING HYDROGEN SPIN-FLIP FREQUENCY...</p>
@@ -913,7 +913,7 @@
             }
         });
 
-       // --- WOW FACTOR: JAVASCRIPT ---
+        // --- WOW FACTOR: JAVASCRIPT ---
 
         // 1. Preloader Boot Sequence (Voyager Edition - Extended Timer)
         window.addEventListener('load', () => {
