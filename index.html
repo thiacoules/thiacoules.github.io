@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J. Thiacoules | Executive Portfolio</title>
-<meta property="og:title" content="John Thiacoules | Executive Portfolio">
-<meta property="og:description" content="Physicist, Biomedical Technologist, and Strategic Analyst. Exploring the intersection of Space Science, Finance, and Human Performance.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop">
-<meta property="og:url" content="https://your-website-link.com">
-<meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="John Thiacoules | Executive Portfolio">
+    <meta property="og:description" content="Physicist, Biomedical Technologist, and Strategic Analyst. Exploring the intersection of Space Science, Finance, and Human Performance.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop">
+    <meta property="og:url" content="https://your-website-link.com">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -40,37 +40,30 @@
         /* DYNAMIC THEME STATES */
         body.theme-home { 
             --accent: #fff; 
-            /* Keeps your default space background */
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
         }
         body.theme-science { 
             --accent: var(--color-science); 
-            /* A dark, blue-tinted lab or nebula background */
             background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop'); 
         }
         body.theme-finance { 
             --accent: var(--color-finance); 
-            /* A dark, abstract data/cityscape background */
             background-image: url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=2070&auto=format&fit=crop'); 
         }
         body.theme-athlete { 
             --accent: var(--color-athlete); 
-            /* A dark, high-contrast gym/track background */
             background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop'); 
         }
         body.theme-pedagogy { 
             --accent: var(--color-pedagogy); 
-            /* A classic library or chalkboard background */
             background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop'); 
         }
         body.theme-dossier { 
             --accent: var(--color-dossier); 
-            /* Clean, dark minimalist desk background */
             background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop'); 
         }
-       body.theme-contact { 
+        body.theme-contact { 
             --accent: var(--color-contact); 
-            /* Keep it similar to home or add a subtle map background */
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
         }
 
@@ -87,7 +80,6 @@
             height: 100vh;
             overflow: hidden;
             display: flex;
-            /* This is the lag fix! No more "all 0.5s ease" */
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
@@ -178,7 +170,6 @@
             border-radius: 8px; transition: 0.3s; animation: fadeIn 0.5s; display: none; 
         }
         .card.show { display: block; } 
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
 
         .card h3 { font-family: var(--font-head); margin-bottom: 10px; font-size: 1.3rem; }
         .card p { font-size: 0.95rem; line-height: 1.6; color: #ccc; margin-bottom: 15px; }
@@ -262,8 +253,8 @@
             .split-card { width: 100%; height: 150px; }
             .tab-content { padding: 40px 20px 80px; }
         }
-    </style>
-    /* --- WOW FACTOR: CSS UPGRADES --- */
+
+        /* --- WOW FACTOR: CSS UPGRADES --- */
         
         /* 1. Preloader Styles */
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease; }
@@ -281,7 +272,7 @@
         .card:hover { 
             transform: translateY(-8px) scale(1.02); 
             border-color: var(--accent); 
-            box-shadow: 0 10px 30px -10px var(--accent); /* This creates the dynamic glow */
+            box-shadow: 0 10px 30px -10px var(--accent); 
         }
 
         /* 3. Custom Radar Cursor */
@@ -305,6 +296,7 @@
             0% { opacity: 0.95; box-shadow: 0 0 5px rgba(0,212,255,0.2); }
             100% { opacity: 1; box-shadow: inset 0 0 15px rgba(0,212,255,0.4), 0 0 10px rgba(0,212,255,0.5); }
         }
+    </style>
 </head>
 <body class="theme-home">
     <div id="preloader">
@@ -411,7 +403,9 @@
                 <div class="endorsement-container">
                     
                 </div>
-            </div> <div id="science-bio" class="sub-section">
+            </div> 
+            
+            <div id="science-bio" class="sub-section">
                 <button class="back-btn" onclick="resetSub('science')"><i class="fas fa-arrow-left"></i> Return to Sector 01</button>
                 
                 <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2070&auto=format&fit=crop" class="tab-hero" alt="Lab">
@@ -752,6 +746,9 @@
 
     </main>
 
+    <div id="secret-planet" style="position:fixed; top:10%; right:10%; font-size:6rem; opacity:0; transition: opacity 1.5s; z-index:9998; filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.5));">🔴</div>
+    <div id="secret-rocket" style="position:fixed; bottom:-150px; left:-150px; font-size:4rem; transform: rotate(45deg); transition: all 3s ease-in-out; z-index:9999;">🚀</div>
+
     <script>
         function switchTab(tabId) {
             // Theme
@@ -830,10 +827,10 @@
         function startAthleteSim() {
             if(athleteInterval) clearInterval(athleteInterval);
             
-            // 1. Bar Simulation (Kept your original logic)
+            // 1. Bar Simulation 
             athleteInterval = setInterval(() => {
-                const hr = Math.floor(60 + Math.random() * 40); // 60-100 BPM
-                const rec = Math.floor(90 + Math.random() * 10); // 90-100%
+                const hr = Math.floor(60 + Math.random() * 40); 
+                const rec = Math.floor(90 + Math.random() * 10); 
                 
                 document.getElementById('bar-hr').style.width = (hr / 2) + '%'; 
                 document.getElementById('val-hr').innerText = hr + ' BPM';
@@ -849,90 +846,73 @@
             
             // Set canvas size to match the container
             canvas.width = canvas.parentElement.offsetWidth;
-            canvas.height = 60; // Matches your CSS height
+            canvas.height = 60; 
             
             let x = 0;
 
             function animate() {
-                // Stop the loop if the user clicks away to another tab
                 if (!document.body.classList.contains('theme-athlete')) return;
                 
-                // Create a fading trail effect
                 ctx.fillStyle = "rgba(0, 20, 0, 0.1)"; 
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                // Draw the line
                 ctx.strokeStyle = "var(--color-athlete)";
                 ctx.lineWidth = 2;
                 ctx.beginPath();
-                ctx.moveTo(x, 30); // Center line
+                ctx.moveTo(x, 30); 
                 
-                // Create the heartbeat "spike" every ~150 pixels
                 let y = 30;
-                if (x % 150 > 130 && x % 150 < 135) y = 10; // Sharp spike up
-                if (x % 150 >= 135 && x % 150 < 145) y = 50; // Deep dip down
+                if (x % 150 > 130 && x % 150 < 135) y = 10; 
+                if (x % 150 >= 135 && x % 150 < 145) y = 50; 
                 
                 ctx.lineTo(x + 2, y);
                 ctx.stroke();
 
-                // Move forward, or reset to the left side if we hit the edge
                 x = x > canvas.width ? 0 : x + 2;
                 
                 requestAnimationFrame(animate);
             }
-            animate(); // Kick off the animation
-        }
-    </script>
-<div id="secret-planet" style="position:fixed; top:10%; right:10%; font-size:6rem; opacity:0; transition: opacity 1.5s; z-index:9998; filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.5));">🔴</div>
-<div id="secret-rocket" style="position:fixed; bottom:-150px; left:-150px; font-size:4rem; transform: rotate(45deg); transition: all 3s ease-in-out; z-index:9999;">🚀</div>
-
-<script>
-    let keySequence = [];
-    const secretCode = ['m', 'a', 'r', 's'];
-
-    window.addEventListener('keyup', (e) => {
-        keySequence.push(e.key.toLowerCase());
-        
-        // Keep sequence length correct
-        if (keySequence.length > secretCode.length) {
-            keySequence.shift();
+            animate();
         }
 
-        // Check for match
-        if (keySequence.join('') === secretCode.join('')) {
-            const planet = document.getElementById('secret-planet');
-            const rocket = document.getElementById('secret-rocket');
+        // --- EASTER EGG ---
+        let keySequence = [];
+        const secretCode = ['m', 'a', 'r', 's'];
 
-            // 1. Reveal Mars
-            planet.style.opacity = "1";
-
-            // 2. Launch Rocket
-            // FIXED: Changed bottom from 10% to 80% so it actually goes up to the planet
-            setTimeout(() => {
-                rocket.style.bottom = "80%"; 
-                rocket.style.left = "80%";   
-            }, 100);
-
-            // 3. Reset Mission after 4 seconds
-            setTimeout(() => {
-                planet.style.opacity = "0";
-                
-                // Snap rocket back instantly (no animation)
-                rocket.style.transition = "none"; 
-                rocket.style.bottom = "-150px";
-                rocket.style.left = "-150px";
-                
-                // Re-enable animation for next time
-                setTimeout(() => { 
-                    rocket.style.transition = "all 3s ease-in-out"; 
-                }, 100);
-            }, 4000);
+        window.addEventListener('keyup', (e) => {
+            keySequence.push(e.key.toLowerCase());
             
-            keySequence = []; // Clear keys
-        }
-    });
-</script>
-    // --- WOW FACTOR: JAVASCRIPT ---
+            if (keySequence.length > secretCode.length) {
+                keySequence.shift();
+            }
+
+            if (keySequence.join('') === secretCode.join('')) {
+                const planet = document.getElementById('secret-planet');
+                const rocket = document.getElementById('secret-rocket');
+
+                planet.style.opacity = "1";
+
+                setTimeout(() => {
+                    rocket.style.bottom = "80%"; 
+                    rocket.style.left = "80%";   
+                }, 100);
+
+                setTimeout(() => {
+                    planet.style.opacity = "0";
+                    rocket.style.transition = "none"; 
+                    rocket.style.bottom = "-150px";
+                    rocket.style.left = "-150px";
+                    
+                    setTimeout(() => { 
+                        rocket.style.transition = "all 3s ease-in-out"; 
+                    }, 100);
+                }, 4000);
+                
+                keySequence = []; 
+            }
+        });
+
+        // --- WOW FACTOR: JAVASCRIPT ---
 
         // 1. Preloader Boot Sequence
         window.addEventListener('load', () => {
@@ -942,7 +922,7 @@
                     preloader.style.opacity = '0';
                     setTimeout(() => preloader.style.display = 'none', 1000);
                 }
-            }, 4000); // 4 seconds gives the terminal time to type out
+            }, 4000); 
         });
 
         // 2. Custom Radar Cursor Logic
@@ -950,18 +930,15 @@
         const cursorOutline = document.querySelector('.cursor-outline');
         
         window.addEventListener('mousemove', (e) => {
-            // Dot follows instantly
             cursorDot.style.left = `${e.clientX}px`;
             cursorDot.style.top = `${e.clientY}px`;
             
-            // Outline trails smoothly using the Web Animations API
             cursorOutline.animate({
                 left: `${e.clientX}px`,
                 top: `${e.clientY}px`
             }, { duration: 400, fill: "forwards" });
         });
 
-        // Click effect (Radar pulse)
         window.addEventListener('mousedown', () => {
             cursorOutline.style.transform = 'translate(-50%, -50%) scale(0.6)';
             cursorOutline.style.backgroundColor = 'rgba(255,255,255,0.1)';
@@ -970,5 +947,6 @@
             cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
             cursorOutline.style.backgroundColor = 'transparent';
         });
+    </script>
 </body>
 </html>
