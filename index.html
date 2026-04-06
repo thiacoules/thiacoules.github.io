@@ -6,6 +6,7 @@
     <title>J. Thiacoules | Executive Portfolio</title>
     <meta property="og:title" content="John Thiacoules | Executive Portfolio">
     <meta property="og:description" content="Physicist, Biomedical Technologist, and Strategic Analyst. Exploring the intersection of Space Science, Finance, and Human Performance.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop">
     <meta property="og:url" content="https://your-website-link.com">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
@@ -111,7 +112,7 @@
 
         .endorsement-container { margin-top: 50px; border-top: 1px solid var(--glass-border); padding-top: 30px; }
         
-        /* 5. SPECIAL EFFECTS & ANIMATIONS */
+        /* SPECIAL EFFECTS & ANIMATIONS */
         .rocket-container { position: relative; height: 60px; width: 60px; margin: 0 auto 15px; }
         .rocket { font-size: 2rem; position: absolute; bottom: 0; left: 15px; animation: launch 3s infinite ease-in-out; }
         @keyframes launch { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
@@ -153,26 +154,41 @@
         .aristocrat-title { font-family: var(--font-aristocrat); font-size: 2rem; color: #fff; margin-bottom: 30px; letter-spacing: 2px; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* --- THE ARECIBO PRELOADER CSS --- */
+        /* --- THE ULTIMATE DUAL PRELOADER CSS --- */
         #preloader { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #050505; z-index: 99999; display: flex; 
-            align-items: center; justify-content: center; gap: 50px;
+            background: radial-gradient(circle at center, #111 0%, #000 100%); 
+            z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
             transition: opacity 1.2s ease, transform 1.2s ease; overflow: hidden;
         }
 
-        /* The Pixel Art Canvas */
+        .preloader-graphics {
+            display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 80px;
+            width: 100%; max-width: 900px;
+        }
+
+        /* SVG Record */
+        .voyager-svg { width: 280px; height: 280px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)); }
+        .v-line, .v-circle { fill: none; stroke: #d4af37; stroke-width: 2; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+        .v-pulse-map { animation: drawSVG 2.5s ease-out forwards; animation-delay: 0.5s; }
+        .v-hydro { animation: drawSVG 1.5s ease-out forwards; animation-delay: 1.5s; }
+        .v-groove { animation: drawSVG 3s ease-in-out forwards; }
+        .v-groove-spin { animation: spin 20s linear infinite; transform-origin: center; }
+
+        @keyframes drawSVG { to { stroke-dashoffset: 0; } }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Pixel Canvas */
         #areciboCanvas {
-            image-rendering: pixelated; /* Keeps pixels sharp */
-            height: 60vh; /* Scales it up nicely */
-            width: auto;
+            image-rendering: pixelated; 
+            height: 280px; width: auto;
             border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
             background: #000;
         }
 
         /* Terminal Decoder */
-        .decoder-box { font-family: monospace; color: #00d4ff; font-size: 1rem; line-height: 2; width: 400px;}
+        .decoder-box { font-family: monospace; color: #00d4ff; font-size: 1rem; line-height: 2; text-align: center;}
         .dec-line { margin: 5px 0; letter-spacing: 1px; }
         .highlight-text { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.6); }
 
@@ -196,23 +212,54 @@
             .split-menu { flex-direction: column; height: auto; }
             .split-card { width: 100%; height: 150px; }
             .tab-content { padding: 40px 20px 80px; }
-            #preloader { flex-direction: column; gap: 20px; }
-            #areciboCanvas { height: 40vh; }
-            .decoder-box { font-size: 0.8rem; width: 300px; text-align: center; }
+            
+            .preloader-graphics { flex-direction: column; gap: 30px; }
+            .voyager-svg { width: 180px; height: 180px; }
+            #areciboCanvas { height: 180px; }
+            .decoder-box { font-size: 0.8rem; width: 300px; }
         }
     </style>
 </head>
 <body class="theme-home">
     
     <div id="preloader">
-        <canvas id="areciboCanvas" width="23" height="73"></canvas>
+        <div class="preloader-graphics">
+            <svg viewBox="0 0 300 300" class="voyager-svg">
+                <g class="v-groove-spin">
+                    <circle cx="150" cy="150" r="140" class="v-circle v-groove" />
+                    <circle cx="150" cy="150" r="130" class="v-circle v-groove" style="animation-delay: 0.2s;" />
+                    <circle cx="150" cy="150" r="120" class="v-circle v-groove" style="animation-delay: 0.4s;" />
+                    <circle cx="150" cy="150" r="110" class="v-circle v-groove" style="animation-delay: 0.6s;" />
+                </g>
+                <g transform="translate(150, 150)">
+                    <line x1="0" y1="0" x2="0" y2="-90" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="70" y2="-50" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="-60" y2="-60" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="90" y2="10" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="-80" y2="20" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="40" y2="80" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="-30" y2="90" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="-100" y2="-10" class="v-line v-pulse-map" />
+                    <line x1="0" y1="0" x2="80" y2="60" class="v-line v-pulse-map" />
+                    <circle cx="0" cy="0" r="4" fill="#d4af37" />
+                </g>
+                <g transform="translate(40, 40)">
+                    <circle cx="0" cy="0" r="15" class="v-circle v-hydro" />
+                    <circle cx="40" cy="0" r="15" class="v-circle v-hydro" />
+                    <line x1="15" y1="0" x2="25" y2="0" class="v-line v-hydro" />
+                    <line x1="0" y1="-15" x2="0" y2="-22" class="v-line v-hydro" />
+                    <line x1="40" y1="15" x2="40" y2="22" class="v-line v-hydro" />
+                </g>
+            </svg>
+
+            <canvas id="areciboCanvas" width="23" height="73"></canvas>
+        </div>
 
         <div class="decoder-box">
-            <div class="dec-line" id="dec-1">> INTERCEPTING TRANSMISSION...</div>
+            <div class="dec-line" id="dec-1">> INTERCEPTING MULTIPLE SIGNALS...</div>
             <div class="dec-line" id="dec-2"></div>
             <div class="dec-line" id="dec-3"></div>
-            <div class="dec-line" id="dec-4"></div>
-            <div class="dec-line highlight-text" id="dec-5" style="margin-top:20px;"></div>
+            <div class="dec-line highlight-text" id="dec-4" style="margin-top:20px;"></div>
         </div>
     </div>
 
@@ -709,14 +756,13 @@
             }
         });
 
-        // --- WOW FACTOR: ARECIBO CANVAS SCRIPT ---
+        // --- WOW FACTOR: ULTIMATE DUAL PRELOADER SCRIPT ---
         window.addEventListener('load', () => {
             
             // 1. Draw the Arecibo Message Pixel-by-Pixel
             const canvas = document.getElementById('areciboCanvas');
             if(canvas) {
                 const ctx = canvas.getContext('2d');
-                // Arecibo data mapped to colors. W=White, P=Purple, G=Green, B=Blue, R=Red, Y=Yellow, 0=Empty
                 const areciboData = [
                     "00000000000000000000000", "000W0W0W00W000W0W0W0000", "0000W00W0W0W0W0W0W0W000", "000W000W0W000W0W0W0W000", "00000000000000000000000",
                     "000000000P0000000000000", "00000000P0P000000000000", "000000000P0000000000000", "00000000000000000000000", "G000G000G00G000G0000000",
@@ -754,15 +800,14 @@
                         ctx.fillRect(col, currentRow, 1, 1);
                     }
                     currentRow++;
-                }, 50); // Draws one line every 50ms (takes about 3.6 seconds to finish)
+                }, 50); 
             }
 
-            // 2. Decode the Text
+            // 2. Decode the Text in Terminal
             const lines = [
-                { id: 'dec-2', text: "> IDENTIFYING ATOMIC NUMBERS...", delay: 800 },
-                { id: 'dec-3', text: "> DECODING DNA DOUBLE HELIX...", delay: 1800 },
-                { id: 'dec-4', text: "> MAPPING SOLAR SYSTEM...", delay: 2800 },
-                { id: 'dec-5', text: "> 1679 BITS PARSED. ACCESS GRANTED.", delay: 3600 }
+                { id: 'dec-2', text: "> PARSING ARECIBO BINARY MATRIX...", delay: 800 },
+                { id: 'dec-3', text: "> DECODING VOYAGER PULSAR MAP...", delay: 2000 },
+                { id: 'dec-4', text: "> ANOMALIES RESOLVED. ACCESS GRANTED.", delay: 3500 }
             ];
 
             function scrambleText(elementId, finalString, startDelay) {
@@ -789,7 +834,7 @@
                     preloader.style.opacity = '0';
                     setTimeout(() => preloader.style.display = 'none', 1200);
                 }
-            }, 6000); 
+            }, 6500); 
 
             // 4. Start the Main Portfolio Typewriter
             setTimeout(() => {
@@ -801,7 +846,7 @@
                     typeIndex++;
                     if(typeIndex >= textToType.length) clearInterval(typeInterval);
                 }, 45); 
-            }, 6800); 
+            }, 7200); 
         });
 
         // 5. Custom Radar Cursor
